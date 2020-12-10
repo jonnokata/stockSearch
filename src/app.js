@@ -8,7 +8,6 @@ const onSearchSubmit = (event) => {
     console.log("$stock", $stock);
     const stockName = $stock.val();
     
-    // this is a promise
     const pendingStockData = $.ajax(
       `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=${stockName}&apikey=EU18KIHPYJ49OM7D`
     ).then(stockData => {

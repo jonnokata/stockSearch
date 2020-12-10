@@ -19,13 +19,24 @@
 <body> 
     <h1>Welcome to your Stock Buddy &#128075</h1>
 
-    <div class="form-container"></div>
-        <form id="stock-form">  
-            <label for="stock-search">&#128269</label>
-            <input type="search" class="form-input" id="stock-search-box" name="stock"></input>
-            <input type="submit" class="btn btn-outline-primary" id="stock-search-submit" value="Search"></input>
-        </form>
-    </div>
+    <!-- form input -->
+
+    <form class="row row-cols-lg-auto g-3 align-items-center" id="stock-form">
+        <div class="col-auto">
+          <label class="visually-hidden" for="inlineFormInputGroupStockName"></label>
+          <div class="input-group">
+            <input type="text" class="form-control" id="inlineFormInputGroupStockName" name="stock" placeholder="&#128269 Search for stock"></input>
+          </div>
+        </div>
+
+<!-- form button -->
+
+<div class="col-auto">
+    <input type="submit" class="btn btn-primary" id="stock-search-submit" value="Search" data-bs-toggle="button" autocomplete="off"></input>
+  </div>
+
+</form>
+
     
     <div id="result"></div>
 
