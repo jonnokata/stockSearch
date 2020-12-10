@@ -19,14 +19,17 @@
 <body> 
     <h1>Welcome to your Stock Buddy &#128075</h1>
 
-    <form>
-        <div class="form-group"> 
+    <div class="form-container"></div>
+        <form id="stock-form">  
             <label for="stock-search">&#128269</label>
-            <input type="search" class="form-input" id="stock-search-box"></input>
-            <input type="button" class="btn btn-outline-primary" id="stock-search-submit" value="Search"></input>
-        </div>
+            <input type="search" class="form-input" id="stock-search-box" name="stock"></input>
+            <input type="submit" class="btn btn-outline-primary" id="stock-search-submit" value="Search"></input>
+        </form>
+    </div>
+    
+    <div id="result"></div>
 
-    </form>
+
 
 
 
