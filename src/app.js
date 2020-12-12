@@ -14,22 +14,26 @@ const onSearchSubmit = (event) => {
     `https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${stockName}&apikey=EU18KIHPYJ49OM7D`
   ).then((stockSearchData) => {
     console.log("stockSearchData", stockSearchData);
-    const stockSymbol = stockSearchData.bestMatches[0][`1. symbol`];
-    console.log("stockSymbol", stockSymbol);
-    findStockData(stockSymbol);
+    const stockNameConst = stockSearchData.bestMatches[0][`2. name`];
+    console.log(stockNameConst);
+    const stockSymbolConst = stockSearchData.bestMatches[0][`1. symbol`];
+    console.log("stockSymbol", stockSymbolConst);
+    findStockData(stockSymbolConst, stockNameConst);
   });
 
 }; 
-const findStockData = (symbol) => {
-  const pendingStockData = $.ajax(`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=${symbol}&apikey=EU18KIHPYJ49OM7D`
+const findStockData = (stockSymbolParam, stockNameParam) => {
+  const pendingStockData = $.ajax(`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=${stockSymbolParam}&apikey=EU18KIHPYJ49OM7D`
   ).then(stockData => {
     console.log("stockData", stockData);
     const timeSeriesValues = Object.values(stockData['Time Series (Daily)']);
     console.log(timeSeriesValues);
     const lastClose = timeSeriesValues[0];
     console.log(lastClose);
-    $("#result").empty();
-    $("#result").append(`$ ${lastClose['4. close']}`);
+    $("#price").empty();
+    $("#symbol-and-name").empty();
+    $("#symbol-and-name").append(`${stockSymbolParam} | ${stockNameParam} `)
+    $("#price").append(`$ ${lastClose['4. close']}`);
   });
 
 };
