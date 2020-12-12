@@ -1,10 +1,45 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
 .container {
-    font-family: Roboto;
-    width: 720px;
-    display: block;
-    border-radius: 8px;
-    background-color:  
-  }
+  font-family: Roboto;
+  width: 720px;
+  height: 500px;
+  display: block;
+  border-radius: 8px;
+  margin: 25 auto;
+  padding: 25px;
+  background-image: linear-gradient(to bottom right, #ede1f9, #ffffff);
+}
+
+.form-inline {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  font-size: 15px;
+}
+
+.form-input {
+  vertical-align: middle;
+  margin: 5px 10px 5px 0;
+  padding: 5px;
+  border-radius: 15px;
+  border-width: 1px;
+  border-color: #f2f3fa;
+  border-style: solid;
+}
+
+.btn-primary {
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  user-select: none;
+  color: #ffffff;
+  font-family: Roboto;
+  font-size: 15px;
+  border-radius: 15px;
+  border-width: 1px;
+  border-color: #f2f3fa;
+  border-style: solid;
+  background-color: #e98ef2;
+  padding: 5px 7px;
 }

@@ -29,7 +29,7 @@ const findStockData = (symbol) => {
     const lastClose = timeSeriesValues[0];
     console.log(lastClose);
     $("#result").empty();
-    $("#result").append(lastClose['4. close']);
+    $("#result").append(`$ ${lastClose['4. close']}`);
   });
 
 };
