@@ -80,7 +80,9 @@
 }
 
 .chart-wrapper {
-  max-width: 800px;
+  max-width: 720px;
+  width: 50%;
+  height: 50%;
   margin: 0 auto;
   display: flex;
   justify-content: center;

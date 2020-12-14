@@ -46,7 +46,8 @@ const findStockData = (stockSymbolParam, stockNameParam) => {
 
     $("#symbol-and-name").empty();
     $("#symbol-and-name").append(`${stockSymbolParam} | ${stockNameParam} `)
-    $("#price").append(`$ ${lastClose}`);
+    $("#price").empty();
+    $("#price").append(`$${lastClose}`);
 
     // create chart
 
@@ -75,6 +76,8 @@ const findStockData = (stockSymbolParam, stockNameParam) => {
 
 
     });
+
+
 
 };
 
