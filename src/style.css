@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap");
 
-.container {
+.container-fluid {
   font-family: Roboto, sans-serif;
   width: 100%;
   height: 100%;
@@ -9,14 +9,41 @@
   background-image: linear-gradient(to bottom right, #ede1f9, #ffffff);
 }
 
+.logo-container {
+  width: 30%;
+  min-width: 150px;
+  height: auto;
+  margin-bottom: 15px;
+  margin: auto;
+}
+
+.logo-container img {
+  width: 100%;
+  height: auto;
+  margin: auto;
+}
+
+.logo-container::after {
+  content: "\a";
+  white-space: pre;
+}
+
+.form-container {
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+}
+
 .form-input {
-  vertical-align: middle;
   margin: 5px 10px 5px 0;
   padding: 5px;
   border-radius: 15px;
   border-width: 1px;
   border-color: #f2f3fa;
   border-style: solid;
+  background-color: #fafcff;
 }
 
 .btn-primary {
@@ -38,23 +65,16 @@
 #symbol-and-name {
   font-weight: 600;
   font-size: 28px;
-  margin-left: 6%;
+  text-align: center;
+}
+
+#symbol-and-name::after {
+  content: "\a";
+  white-space: pre;
 }
 
 #price {
   font-weight: 100;
   font-size: 26px;
-  margin-left: 6%;
-}
-
-.logo-container {
-  width: 30%;
-  min-width: 150px;
-  height: auto;
-  margin-bottom: 15px;
-}
-
-.logo-container img {
-  width: 100%;
-  height: auto;
+  text-align: center;
 }
