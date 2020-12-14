@@ -78,3 +78,10 @@
   font-size: 26px;
   text-align: center;
 }
+
+.chart-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
