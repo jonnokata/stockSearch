@@ -1,6 +1,6 @@
 console.log("app is running");
 
-// Use name to find and extract symbol
+// Use name to find and extract symbol from search input
 const onSearchSubmit = (event) => {
   event.preventDefault();
   console.log('event', event);
@@ -13,7 +13,9 @@ const onSearchSubmit = (event) => {
   const pendingStockSymbol = $.ajax(
     `https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${stockName}&apikey=EU18KIHPYJ49OM7D`
   ).then((stockSearchData) => {
+    // return object with closest stock search results as arrays
     console.log("stockSearchData", stockSearchData);
+    // extract name and symbol from first item in array
     const stockNameConst = stockSearchData.bestMatches[0][`2. name`];
     console.log(stockNameConst);
     const stockSymbolConst = stockSearchData.bestMatches[0][`1. symbol`];
@@ -22,10 +24,16 @@ const onSearchSubmit = (event) => {
   });
 
 }; 
+
+// get price by parsing stock symbol into daily price api
+
 const findStockData = (stockSymbolParam, stockNameParam) => {
   const pendingStockData = $.ajax(`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=${stockSymbolParam}&apikey=EU18KIHPYJ49OM7D`
   ).then(stockData => {
     console.log("stockData", stockData);
+    
+    // extract dates from api and create variables that can be used to chart
+
     dateData = Object.keys(stockData['Time Series (Daily)']);
     const dateDataToday = dateData[0];
     const dateDataTodayMinus1 = dateData[1];
@@ -33,8 +41,12 @@ const findStockData = (stockSymbolParam, stockNameParam) => {
     const dateDataTodayMinus3 = dateData[3];
     const dateDataTodayMinus4 = dateData[4];
     console.log("dateData", dateData);
+
+    // turn object into array so that prices can be accessed from returned api results
     const timeSeriesValues = Object.values(stockData['Time Series (Daily)']);
     console.log(timeSeriesValues);
+
+    // extract prices and and create variables that can be used to chart
     const lastClose = timeSeriesValues[0]['4. close'];
     const lastCloseMinus1 = timeSeriesValues[1]['4. close'];
     const lastCloseMinus2 = timeSeriesValues[2]['4. close'];
